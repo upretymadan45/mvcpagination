@@ -35,16 +35,16 @@
         
 #2. Create base controller and add the following code to it
 
-public List<T> PaginatedResult(List<T> t, int page, int rowsPerPage)
-    {
-        @ViewBag.TotalRecords = t.Count;
-        @ViewBag.CurrentPage = page;
+      public List<T> PaginatedResult(List<T> t, int page, int rowsPerPage)
+          {
+              @ViewBag.TotalRecords = t.Count;
+              @ViewBag.CurrentPage = page;
 
-        var skip = (page - 1) * rowsPerPage;
+              var skip = (page - 1) * rowsPerPage;
 
-        var paginatedResult = t.Skip(skip).Take(rowsPerPage).ToList();
-        return paginatedResult;
-    }
+              var paginatedResult = t.Skip(skip).Take(rowsPerPage).ToList();
+              return paginatedResult;
+          }
     
     
   #3. Call the PaginatedResult method of base controller from your controller where you want to paginate your result as below:
